@@ -70,3 +70,29 @@ my_string = "Hello, world!"
 print(my_string.replace("world", "Python"))
 
 
+# метод определения кол-ва символов 
+my_string = "Hello, world!"
+print(my_string.count("l"))
+
+
+# метод определния нахождения в строке цифр или нет 
+my_string = "10x"
+print(my_string.isdigit())
+# для чего это нужно: чтоб код не упал с ошибкой, когда забивают не число 
+integer = input ("Enter a number: ")
+if integer.isdigit():   
+    integer = int(integer)
+
+print(type(integer))
+
+
+# когда в строку необходимо вставить данные - метод "форматирование" 
+name = "Alice"
+age = 25 
+print(f"Hello, my name is {name}, and I'm {age} years old")
+# если в словах используется одинарная кавычка - строку объявлять через двойные кавычки
+
+# тоже самое с численными переменными 
+x = 10
+y = 5
+print(f"summary is {x + y}, multiplication is {x * y}")

@@ -44,7 +44,7 @@ if message:
 
 
 # функция определения високосного года
-year = 2004
+year = 2007
 
 if year % 4 == 0 and year % 100 != 0:   
     print("yaer is leap")
@@ -53,8 +53,8 @@ elif year % 400 == 0:
 else:
     print("yaer is not leap")
 
-# второй вариант 
-year = 2004
+# второй вариант НЕ РАБОТАЕТ!!!!
+year = 200
 
 if not year % 4 and year % 100:   
     print("yaer is leap")

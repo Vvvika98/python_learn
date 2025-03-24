@@ -15,7 +15,7 @@ fruits[0] = "pineapple"
 print(fruits)
 
 
-# можно сделать перестановку еэлементов в списке 
+# можно сделать перестановку элементов в списке 
 fruits = ["apple" , "banana" , "cherry" , "watermelon"]
 fruits[0], fruits [3] = fruits [3] , fruits [0]
 print(fruits)

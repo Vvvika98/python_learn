@@ -96,3 +96,8 @@ print(f"Hello, my name is {name}, and I'm {age} years old")
 x = 10
 y = 5
 print(f"summary is {x + y}, multiplication is {x * y}")
+
+#поиск подстроки в строке
+my_string = 'Терминатор, Пятый элемент, Аватар, Чужие, Назад в будущее'
+index = (my_string.find('Чужие')) 
+print(index)

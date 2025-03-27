@@ -32,4 +32,5 @@ secret_message = [
 #   4е и 5е слова нужно получить за 1 срез
 #   Если нужны вычисления и разные пробы - делайте это в консоли пайтона, тут нужен только результат
 
-# TODO вывести расшифрованное сообщение
+words  = secret_message[3] + secret_message[4]
+print(secret_message[0][3], secret_message[1][9:13], secret_message[2][5:15:2], words[12:6:-1], words[52:47:-1])

@@ -24,8 +24,7 @@ def bake_time_remaining(elapsed_bake_time: int):
     based on the `EXPECTED_BAKE_TIME`.
     """
 
-    bake_time_remaining = EXPECTED_BAKE_TIME - elapsed_bake_time
-    return bake_time_remaining
+    return EXPECTED_BAKE_TIME - elapsed_bake_time
     
     
 
@@ -47,8 +46,8 @@ def preparation_time_in_minutes(number_of_layers: int):
     You might also consider defining a 'PREPARATION_TIME' constant.
 
     """
-    preparation_time_in_minutes = number_of_layers * PREPARATION_TIME
-    return preparation_time_in_minutes
+    
+    return number_of_layers * PREPARATION_TIME
 
 
 
@@ -63,8 +62,8 @@ def elapsed_time_in_minutes(number_of_layers: int, elapsed_bake_time: int):
     and the baking time as arguments and returns how many minutes it took.
 
     """
-    elapsed_time_in_minutes = number_of_layers * PREPARATION_TIME + elapsed_bake_time
-    return elapsed_time_in_minutes
+    
+    return number_of_layers * PREPARATION_TIME + elapsed_bake_time
 
 
     

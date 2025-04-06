@@ -82,13 +82,12 @@ def exchangeable_value(budget, exchange_rate, spread, denomination):
     :param denomination: int - the value of a single bill.
     :return: int - maximum value you can get.
     """
-
-    return (int(budget / (exchange_rate + (exchange_rate * spread / 100)) / denomination)) * denomination
+    new_exchange_rate = exchange_rate * (1 + spread / 100)   #рассчитываем новый курс с учетом спреда 
+    after_exchange = exchange_money(budget, new_exchange_rate)  #сумма после обмена 
+    bills = get_number_of_bills(after_exchange, denomination) #используя предыдущую функцию деньги после отбмена / на номинал купюры 
+    return get_value_of_bills(denomination, bills) #высчитали сколько денег (сумма) получится в заданном номинале 
     
 
 print(exchangeable_value(127.25, 1.20, 10, 20))
 
 print(exchangeable_value(127.25, 1.20, 10, 5))
-
-# применить функции из заданий выше (обсудить на созвоне)
-

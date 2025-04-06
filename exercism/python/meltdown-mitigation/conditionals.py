@@ -15,10 +15,7 @@ def is_criticality_balanced(temperature, neutrons_emitted):
     """
 
 
-    if temperature < 800 and neutrons_emitted > 500 and temperature * neutrons_emitted < 500000: #сначала написала просто произведение (pytest выдал ошибку)
-        return True 
-    else:
-        return False 
+    return temperature < 800 and neutrons_emitted > 500 and temperature * neutrons_emitted < 500000 
 
 
 print(is_criticality_balanced(750, 600))
@@ -50,15 +47,18 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
     generated_power = voltage * current 
     efficiency = (generated_power / theoretical_max_power) * 100
 
-    if efficiency >= 80: 
-        return "green"
-    if efficiency < 80 and efficiency >= 60:
-        return "orange"
-    if efficiency < 60 and efficiency >= 30:
+    if 30 <= efficiency < 60:
         return "red"
-    else:
-        return "black"
+    if 60 <= efficiency < 80:
+        return "orange"
+    if 80 <= efficiency: 
+        return "green"
+    return "black"
 
+    
+    # x = 2 #цепные сравнения 
+    # if x > 1 and x < 3 
+    # if 1 < x < 3 
 
 print(reactor_efficiency(200,50,15000))
 
@@ -80,15 +80,12 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
     """
 
     state_for_reactor = temperature * neutrons_produced_per_second # 30000
-    
-    if  state_for_reactor < threshold * 0.9: #меньше 90% - 4500 
+    low = threshold * 0.9
+    if  state_for_reactor < low: #меньше 90% - 4500 
         return "LOW"
-    if state_for_reactor >= threshold - (threshold * 0.1) and state_for_reactor <= threshold + (threshold * 0.1): #90% - 4500 110% - 5500 
+    if  low <= state_for_reactor <= threshold * 1.1: #90% - 4500 110% - 5500 
         return "NORMAL"
-    elif state_for_reactor == threshold: #100%
-        return "NORMAL"
-    else:
-        return "DANGER"
+    return "DANGER"
 
 
 print(fail_safe(temperature=1000, neutrons_produced_per_second=30, threshold=5000))

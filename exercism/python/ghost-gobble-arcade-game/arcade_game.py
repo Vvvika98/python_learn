@@ -9,10 +9,8 @@ def eat_ghost(power_pellet_active, touching_ghost):
     :return: bool - can a ghost be eaten?
     """
     
-    if power_pellet_active and touching_ghost:
-        return True 
-    else: 
-        return False 
+    return power_pellet_active and touching_ghost
+
 
 print(eat_ghost(False, True))
         
@@ -28,11 +26,8 @@ def score(touching_power_pellet, touching_dot):
     :return: bool - has the player scored or not?
     """
 
-    if touching_power_pellet or touching_dot:
-        return True 
-    else:
-        return False 
-
+    return touching_power_pellet or touching_dot
+    
 print(score(True, True))
 
 
@@ -46,11 +41,8 @@ def lose(power_pellet_active, touching_ghost):
     :return: bool - has the player lost the game?
     """
 
-    if power_pellet_active == 0: #сначала написала через True False (код сработал, но выдал Avoid equality comparisons to `True`; use `if touching_ghost:` for truth checks)
-        if touching_ghost == 1:
-            return True 
-    else:
-        return False
+    return touching_ghost and not power_pellet_active #можно поменять местами 
+      
     
 
 print(lose(False, True))
@@ -65,10 +57,8 @@ def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
     :return: bool - has the player won the game?
     """
 
-    if has_eaten_all_dots == 1 and not lose(power_pellet_active, touching_ghost):
-        return True 
-    else:
-        return False 
+    return has_eaten_all_dots and not lose(power_pellet_active, touching_ghost)
+
 
 
 print(win(False, True, False))

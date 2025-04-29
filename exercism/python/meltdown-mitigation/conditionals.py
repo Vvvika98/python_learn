@@ -55,11 +55,6 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
         return "green"
     return "black"
 
-    
-    # x = 2 #цепные сравнения 
-    # if x > 1 and x < 3 
-    # if 1 < x < 3 
-
 print(reactor_efficiency(200,50,15000))
 
 
@@ -89,5 +84,3 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
 
 
 print(fail_safe(temperature=1000, neutrons_produced_per_second=30, threshold=5000))
-
-    

@@ -20,9 +20,9 @@ def check_sentence_ending(sentence):
     :return: bool - return True if punctuated correctly with period, False otherwise.
     """
 
-    return sentence.endswith('.')
+    return sentence.endswith('.') 
     
-print(check_sentence_ending("I like to hike, bake, and read."))
+# print(check_sentence_ending("I like to hike, bake, and read."))
 
 
 def clean_up_spacing(sentence):
@@ -32,7 +32,9 @@ def clean_up_spacing(sentence):
     :return: str - a sentence that has been cleaned of leading and trailing space characters.
     """
 
-    pass
+    return sentence.strip()
+
+# print(clean_up_spacing(" I like to go on hikes with my dog.  "))
 
 
 def replace_word_choice(sentence, old_word, new_word):
@@ -44,4 +46,6 @@ def replace_word_choice(sentence, old_word, new_word):
     :return: str - input sentence with new words in place of old words.
     """
 
-    pass
+    return sentence.replace(old_word, new_word)
+
+# print(replace_word_choice("I bake good cakes.", "good", "amazing"))

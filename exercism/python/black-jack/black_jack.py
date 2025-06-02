@@ -89,11 +89,9 @@ def is_blackjack(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    if card_one == 'A' and card_two in ('10','J','Q','K') or card_one in ('10','J','Q','K') and card_two == 'A':
-        return True
-    if value_of_card(card_one) + value_of_card(card_two) == 21:
-        return True
-    return False 
+    
+    return value_of_card(card_one) + value_of_card(card_two) == 11 and 'A' in (card_one, card_two)
+    
 
 
 # print(is_blackjack('A', 'K'))
@@ -107,9 +105,8 @@ def can_split_pairs(card_one, card_two):
     :return: bool - can the hand be split into two pairs? (i.e. cards are of the same value).
     """
 
-    if value_of_card(card_one) == value_of_card(card_two):
-        return True
-    return False 
+    return value_of_card(card_one) == value_of_card(card_two)
+    
 
 # print(can_split_pairs('Q', 'K'))
 # print(can_split_pairs('10', 'A'))
@@ -123,11 +120,9 @@ def can_double_down(card_one, card_two):
     :return: bool - can the hand can be doubled down? (i.e. totals 9, 10 or 11 points).
     """
 
-    if value_of_card(card_one) + value_of_card(card_two) in (9,10,11):
-        return True 
-    return False 
+    return 9 <= value_of_card(card_one) + value_of_card(card_two) <= 11 
 
-print(can_double_down('A', '9'))
-print(can_double_down('10', '2'))
+# print(can_double_down('A', '9'))
+# print(can_double_down('10', '2'))
 
 

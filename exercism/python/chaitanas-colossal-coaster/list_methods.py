@@ -11,12 +11,11 @@ def add_me_to_the_queue(express_queue, normal_queue, ticket_type, person_name):
     :return: list - the (updated) queue the name was added to.
     """
 
-    if ticket_type == 1:
+    if ticket_type:  #можно не писать 1
         express_queue.append(person_name)
         return express_queue
-    elif ticket_type == 0:
-        normal_queue.append(person_name)
-        return normal_queue
+    normal_queue.append(person_name)
+    return normal_queue
 
 # print(add_me_to_the_queue(express_queue=["Tony", "Bruce"], normal_queue=["RobotGuy", "WW"], ticket_type=1, person_name="RichieRich"))
 # print(add_me_to_the_queue(express_queue=["Tony", "Bruce"], normal_queue=["RobotGuy", "WW"], ticket_type=0, person_name="HawkEye"))
@@ -92,8 +91,10 @@ def sorted_names(queue):
     :return: list - copy of the queue in alphabetical order.
     """
 
-    new_queue = queue.copy() #создать копию, для того, чтобы сохранить исходный список
-    new_queue.sort()
-    return new_queue 
+    # new_queue = queue.copy() #создать копию, для того, чтобы сохранить исходный список
+    # new_queue.sort()
+    # return new_queue 
+
+    return sorted(queue) #если используем копию то лучше пользоваться функцией, а если изменить список - методом 
     
 # print(sorted_names(queue=["Natasha", "Steve", "Eltran", "Natasha", "Rocket"]))

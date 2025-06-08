@@ -95,15 +95,12 @@ while sigma > 24:
 
 
 
-
 print("Начинаем отсчет") #выводим значение перед началом цикла
 n = int(input()) #делаем переменную N с вводом для пользователя в терминале 
-i = 0 #переменная для конца отсчета
-print(n)
-while n > i: #цикл - пока число N больше переменной i
-    print(n - 1) #выведи число N - 1 
-    n = n - 1 #расчет Nв цикле (уменьшается на 1)
-print("Стартуем!") #выводи значение после оончания цикла
+while n >= 0: #цикл - пока число N больше переменной i
+    print(n)
+    n -= 1 #расчет Nв цикле (уменьшается на 1)
+print("Стартуем!") #выводи значение после окончания цикла
 
 
 
@@ -145,12 +142,30 @@ while numbers.count(5) < 10:
     numbers.append(5)
 print(numbers)
 
+#второй вариант решения 
+numbers_string = input()
+numbers = [int(x) for x in numbers_string.split()] #глянула в нэте, разобрать с ваней как можно проще было 
+delite_numbers = [4,7]
+for d in delite_numbers:
+    while d in numbers:
+        numbers.remove(d)
+while numbers.count(5) < 10:
+    numbers.append(5)
+print(numbers)
+
 
 #будут пропадать первая и последняя буквы
 word = (input(""))
-print(word)
 while len(word) > 0:
-    word = word[1:-1]
     print(word)
+    word = word[1:-1]
 
 # На ввод слово Правильность 
+
+#ПРИМЕР ЦИКЛА
+count = 0  # Инициализируем переменную перед циклом
+while count < 5:  # Условие: цикл выполняется, пока count меньше 5
+    print(f"Значение count: {count}")  # Выводим значение count
+    count = count + 1  # Увеличиваем count на 1 (ключевой шаг для завершения цикла)
+
+print("Цикл завершен!")  # Эта строка выполнится после завершения цикла

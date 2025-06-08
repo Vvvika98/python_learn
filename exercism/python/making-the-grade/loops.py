@@ -8,8 +8,8 @@ def round_scores(student_scores):
     :return: list - student scores *rounded* to nearest integer value.
     """
     scores = []
-    for i in student_scores:
-        scores.append(round(i))
+    for number in student_scores:
+        scores.append(round(number))
     return scores
    
 
@@ -22,9 +22,9 @@ def count_failed_students(student_scores):
     :return: int - count of student scores at or below 40.
     """
     count = 0
-    for i in student_scores:
-        if i <= 40:
-            print(i)
+    for number in student_scores:
+        if number <= 40:
+            print(number)
             count += 1
     return count
 
@@ -40,9 +40,9 @@ def above_threshold(student_scores, threshold):
     :return: list - of integer scores that are at or above the "best" threshold.
     """
     best = []
-    for i in student_scores:
-        if i >= threshold:
-            best.append(i)
+    for num in student_scores:
+        if num >= threshold:
+            best.append(num)
             # print(i)
     return best
 
@@ -63,8 +63,8 @@ def letter_grades(highest):
     """
     grades = [] #ЭТО БЫЛО СЛОЖНОЕ ЗАДАНИЕ !!!!!!!!!!!!!! Я ОБЪЯСНЕНИЕ НЕ ПОНЯЛА ВАЩЕ 
     interval = (highest - 40) // 4
-    for i in range(41, highest,interval):
-        grades.append(i)
+    for numbers in range(41, highest,interval):
+        grades.append(numbers)
     return grades
       
 # print(letter_grades(highest=100)) 
@@ -79,9 +79,9 @@ def student_ranking(student_scores, student_names):
     """
     ranking = []
     rank = 0
-    for i, num in zip(student_names, student_scores): #функция зип для параллельной итерации по двум спискам (создавая кортеж)
+    for name, point in zip(student_names, student_scores): #функция зип для параллельной итерации по двум спискам (создавая кортеж)
         rank += 1
-        ranking.append(f"{rank}. {i}: {num}")
+        ranking.append(f"{rank}. {name}: {point}")
     return ranking
 
 # print(student_ranking(student_scores = [100, 99, 90, 84, 66, 53, 47], student_names =  ['Joci', 'Sara','Kora','Jan','John','Bern', 'Fred']))   
@@ -100,6 +100,5 @@ def perfect_score(student_info):
             return num
     return []
 
-
-print(perfect_score(student_info=[["Charles", 90], ["Tony", 80], ["Alex", 100]]))
-print(perfect_score(student_info=[["Charles", 90], ["Tony", 80]]))
+# print(perfect_score(student_info=[["Charles", 90], ["Tony", 80], ["Alex", 100]]))
+# print(perfect_score(student_info=[["Charles", 90], ["Tony", 80]]))

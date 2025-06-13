@@ -7,8 +7,6 @@ def get_coordinate(record):
     :param record: tuple - with a (treasure, coordinate) pair.
     :return: str - the extracted map coordinate.
     """
-    
-
 
     return record[1]
     
@@ -21,8 +19,6 @@ def convert_coordinate(coordinate):
     :param coordinate: str - a string map coordinate
     :return: tuple - the string coordinate split into its individual components.
     """
-
-
 
     return tuple(coordinate)
 
@@ -37,13 +33,13 @@ def compare_records(azara_record, rui_record):
     :return: bool - do the coordinates match?
     """
 
-
-
-    coor_1 = tuple(azara_record[1])
-    # print(coor_1)
-    coor_2 = rui_record[1]
-    # print(coor_2)
-    return coor_1 == coor_2
+    # coor_1 = tuple(azara_record[1])
+    # # print(coor_1)
+    # coor_2 = rui_record[1]
+    # # print(coor_2)
+    # return coor_1 == coor_2
+    
+    return tuple(azara_record[1]) == rui_record[1]
 
 # print(compare_records(('Brass Spyglass', '4B'), ('Seaside Cottages', ('1', 'C'), 'blue')))
 # print(compare_records(('Model Ship in Large Bottle', '8A'), ('Harbor Managers Office', ('8', 'A'), 'purple')))
@@ -56,13 +52,9 @@ def create_record(azara_record, rui_record):
     :return: tuple or str - the combined record (if compatible), or the string "not a match" (if incompatible).
     """
 
-
-
-    if compare_records(azara_record, rui_record) == 1: #используя предыдщую функцию, чтоб не преобразовывать опять по срезам. Хотела написать True - выдает ошибку
-        result = azara_record + rui_record #делаем конкатенацию кортежей
-        return result
-    else:
-        return("not a match")
+    if compare_records(azara_record, rui_record): #используя предыдщую функцию, чтоб не преобразовывать опять по срезам #делаем конкатенацию кортежей
+        return azara_record + rui_record
+    return "not a match"
     
 
 # print(create_record(('Brass Spyglass', '4B'), ('Abandoned Lighthouse', ('4', 'B'), 'Blue')))
@@ -78,30 +70,11 @@ def clean_up(combined_record_group):
 
     (see HINTS.md for an example).
     """
-
-    ('Brass Spyglass', '4B', 'Abandoned Lighthouse', ('4', 'B'), 'Blue')
-    ('Vintage Pirate Hat', '7E', 'Quiet Inlet (Island of Mystery)', ('7', 'E'), 'Orange')
-    ('Crystal Crab', '6A', 'Old Schooner', ('6', 'A'), 'Purple')
         
     report = ""
     for record in combined_record_group:
-        treasure = record[0]
-        coord_treasure = record[1]
-        location = record[2]
-        coord_location = record[3]
-        quadrant = record[4]
-        # print(f"record: {record}")
-        cleaned_record = (treasure, location, coord_location, quadrant)
-        # print(f"cleaned_record: {cleaned_record}")
-        report += f"{cleaned_record} \n"
+        report += f"{(record[0], *record[2:])}\n"
+        print(report)
     return report
-    
 
-    # result_1 = combined_record_group[0][0] + combined_record_group[1][0] + combined_record_group[2][0]
-    # result_2 = combined_record_group[0][2:]+ combined_record_group[1][2:] + combined_record_group[2][2:]
-    # print(result_1, result_2)
-    # report = result_1 + result_2 
-    # return report
-
-
-print(clean_up((('Brass Spyglass', '4B', 'Abandoned Lighthouse', ('4', 'B'), 'Blue'), ('Vintage Pirate Hat', '7E', 'Quiet Inlet (Island of Mystery)', ('7', 'E'), 'Orange'), ('Crystal Crab', '6A', 'Old Schooner', ('6', 'A'), 'Purple'))))    
+# print(clean_up((('Brass Spyglass', '4B', 'Abandoned Lighthouse', ('4', 'B'), 'Blue'), ('Vintage Pirate Hat', '7E', 'Quiet Inlet (Island of Mystery)', ('7', 'E'), 'Orange'), ('Crystal Crab', '6A', 'Old Schooner', ('6', 'A'), 'Purple'))))    

@@ -68,12 +68,15 @@ def remove_item(inventory, item):
     :param item: str - item to remove from the inventory.
     :return: dict - updated inventory with item removed. Current inventory if item does not match.
     """
-    result = inventory.copy()        #Ваня, создала копию словаря, чтоб его изменить, т.к. сам словарь в цикле меня нельзя(?)
+    # result = inventory.copy()        #Ваня, создала копию словаря, чтоб его изменить, т.к. сам словарь в цикле меня нельзя(?)
     
-    for key in inventory:            #перебираем с помощью цикла ключи в данных нам словарях
-        if key in item:              #если ключ в предмете который дан
-            result.pop(key)          #с помощью метода удаляем его
-    return result
+    # for key in inventory:            #перебираем с помощью цикла ключи в данных нам словарях
+    #     if key in item:              #если ключ в предмете который дан
+    #         result.pop(key)          #с помощью метода удаляем его
+    # return result
+
+    inventory.pop(item, None)          #
+    return inventory
 
 # print(remove_item({"coal":2, "wood":1, "diamond":2}, "coal"))
 # print(remove_item({"coal":2, "wood":1, "diamond":2}, "gold"))
@@ -85,14 +88,21 @@ def list_inventory(inventory):
     :return: list of tuples - list of key, value pairs from the inventory dictionary.
     """
 
-    result = inventory.copy()                  #Ваня, создала копию словаря, чтоб его изменить, т.к. сам словарь в цикле меня нельзя(?)
+    # result = inventory.copy()                  #Ваня, создала копию словаря, чтоб его изменить, т.к. сам словарь в цикле меня нельзя(?)
     
-    for key, value in inventory.items():       #с помощью метода перебираем ключи и значения в ИНВЕНТАРЕ
-        # print(key,value)
-        if value <= 0:                         #если значение <=0 удалем его с помощью метода 
-            result.pop(key)                    #удалем его с помощью метода 
-        res = list(result.items())             #в новой переменной с помощью метода делаем пару кортеж (ключ,значение) и оборачиваем в список, ТАК ТРЕБУЕТ ЗАДАНИЕ
-    return res
+    # for key, value in inventory.items():       #с помощью метода перебираем ключи и значения в ИНВЕНТАРЕ
+    #     # print(key,value)
+    #     if value <= 0:                         #если значение <=0 удалем его с помощью метода 
+    #         result.pop(key)                    #удалем его с помощью метода 
+    #     res = list(result.items())             #в новой переменной с помощью метода делаем пару кортеж (ключ,значение) и оборачиваем в список, ТАК ТРЕБУЕТ ЗАДАНИЕ
+    # return res
+
+    result = []                                  # добавляем в пустой список сразу нужные нам значения, ЭТОТ ПОДХОД ПРОЩЕ И БЫСТРЕЕ 
+
+    for key, value in inventory.items():
+        if value > 0:
+            result.append((key, value))
+    return result
 
 
 # print(list_inventory({"coal":7, "wood":11, "diamond":2, "iron":7, "silver":0}))

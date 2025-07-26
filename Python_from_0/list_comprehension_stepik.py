@@ -1,7 +1,7 @@
 #1 При помощи генератора-списка создайте список, состоящие из N нулей, и выведите его в качестве ответа
 
 n = int(input())
-result = [0 for num in range(n)]
+result = [0 for _ in range(n)]       #неиспользованная переменная 
 print(result)
 
 #2 При помощи генератора-списка создайте список [1, 2, 3, ..., n], само натуральное число n будет поступать на вход вашей программе
@@ -47,10 +47,10 @@ result = [num for num in range(n, (n**2)+1) if num % 2 != 0]
 print(result)
 
 #7 Если a ≤ b, необходимо сформировать список квадратов, Если a > b, необходимо сформировать список кубов
-
+#ПЕРЕПИСАТЬ В ОДИН ЛК
 a, b = map(int, input().split())
 if a <= b:
-    result = [num**2 for num in range(a, b+1) ]
+    result = [num**2 for num in range(a, b+1)]
 if a>b:
     result = [num**3 for num in range(b, a+1)]
     result.reverse()
@@ -92,4 +92,82 @@ phrase = 'Take only the words that start with t in this sentence'
 result = [i for i in phrase.split() if 't' in i[0] or 'T' in i[0]]
 print(result)
 
+result = [word for word in phrase.split() if word.startswith(("t", "T"))] #мб метод здесь и излишен, но выгляит красивее
+print(result)
 
+#КЕЙС 6.10
+s = 'hdyiehyiweoj3RJHDJERU95935UGISjgklgnhjkdf'
+
+a = [int(i)for i in s if i.isdigit() ]  #метод определяет в строке цифры, функция инт - делает их целыми числами а не строками
+print(a)
+
+#ВЛОЖЕННЫЙ ГЕНЕРАТОР 
+
+import random
+
+n = 4   #строки
+m = 6   #столбцы
+
+
+a = [[random.randint(1,6)  for j in range(m)] for i in range(n)] #вложеный генератор 
+for i in a:
+    print(i)
+
+
+import random
+
+n = 7   #строки
+m = 7  #столбцы
+
+
+a = [[random.randint(1,6)  for j in range(m)] for i in range(n)] #вложеный генератор 
+for i in a:
+    print(i)
+
+#сформировать список - диагонали матрицы (номер строки совпадет с номером столбца)
+
+b = [a[i][j] for i in range(n) for j in range(m) if i ==j]
+
+print(f'ГЛАВНАЯ ДИАГОНАЛЬ {b}')
+
+#сохранить Элементы, принадлежащие второй строке 
+
+import random
+
+n = 5   #строки
+m = 5  #столбцы
+
+#ВЫВЕСТИ ТОЛЬЕО ВТОРУЮ СТРОКУ
+a = [[random.randint(1,6)  for j in range(m)] for i in range(n)] #вложеный генератор 
+for i in a:
+    print(i)
+
+c = [a[2][j] for j in range(m)]
+
+print("Вторая строка", c)
+
+#ВЫВЕСТИ ТОЛЬКО ТРЕТИЙ СТОБЛЕЦ 
+import random
+
+n = 5   #строки
+m = 5  #столбцы
+
+
+a = [[random.randint(1,6)  for j in range(m)] for i in range(n)] #вложеный генератор 
+for i in a:
+    print(i)
+
+d = [a[i][3] for i in range(n)]
+
+print("Третий столбец", d)
+
+
+#СОСТАВИТЬ ТАБЛИЦУ УМНОЖЕНИЯ 
+#ТАБЛИЦА УМНОЖЕНИЯ 5*5
+n = 5
+m = 5
+
+
+a = [[i*j for j in range(1, m+1)] for i in range(1, n+1)] #ЧИСЛО i=0 умножентся на все числа j, число i=1 умножается на все числа j и т.д.
+for i in a:
+    print(i)

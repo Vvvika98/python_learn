@@ -178,12 +178,20 @@ print(result[:-1])
 
 s = input().lower()
 
-vovels = ["a", "o", "y", "e", "u", "i"]
+vovels = set("aoyeui")
 
-result = "".join([phrase for phrase in s if phrase not in vovels]) 
+result = ".".join([alpha for alpha in s if alpha not in vovels]) #просто генераторное выражение 
 
 result = result.replace("", ".")
 
-print(result[:-1])
+print("." + result)
+
+#3 вариант 
+s = input().lower()
+
+vovels = set("aoyeui")
+
+result = "".join(f".{alpha}" for alpha in s if alpha not in vovels) #просто генераторное выражение 
+print(result)
 
 #---------------------------------------------------------------------------------------------------

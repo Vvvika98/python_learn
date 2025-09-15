@@ -8,7 +8,7 @@ from sets_categories_data import (VEGAN,
                                   OMNIVORE,
                                   ALCOHOLS,
                                   SPECIAL_INGREDIENTS)
-
+from sets_categories_data import example_dishes, EXAMPLE_INTERSECTION
 
 def clean_ingredients(dish_name, dish_ingredients):
     """Remove duplicates from `dish_ingredients`.
@@ -176,52 +176,15 @@ def singleton_ingredients(dishes, intersection):
     The function should return a `set` of ingredients that only appear in a single dish.
     """
 
-    # from sets_categories_data import (example_dishes, 
-    # EXAMPLE_INTERSECTION)
-    
-    # dish = example_dishes
-    # intersection = EXAMPLE_INTERSECTION
 
-    all_ingredients = set()              #пустое множество 
-    for dish in dishes:                  #перебираем блюдо из всех блюд
-        all_ingredients.update(dish)     #добавляем в общий список ингридентов
-    singl_ingredients = all_ingredients - intersection  #из всех ингридиентов удаляем все из КОНСТАНТЫ
-    return singl_ingredients                 
 
-    
+    # all_ingredients = set()              #пустое множество 
+    # for dish in dishes:                  #перебираем блюдо из всех блюд
+    #     all_ingredients.update(dish)     #добавляем в общий список ингридентов
+    # singl_ingredients = all_ingredients - intersection  #из всех ингридиентов удаляем все из КОНСТАНТЫ
+    # return singl_ingredients                 
 
-EXAMPLE_INTERSECTION = {'fresh red chili', 'sugar', 'nutritional yeast', 'fresh ginger', 'red chili powder', 'garlic',
-                        'olive oil', 'mashed potatoes', 'garam masala', 'clove powder', 'cumin powder', 'onion',
-                        'chickpea flour', 'water', 'turmeric powder', 'hing', 'black pepper', 'cinnamon powder',
-                        'cilantro', 'salt', 'oil', 'cardamom powder', 'turmeric', 'garlic paste', 'mustard seeds',
-                        'vinegar', 'mangoes', 'nigella seeds', 'serrano chili', 'flour', 'soy sauce', 'coriander seeds',
-                        'coriander powder', 'lemon juice', 'mango powder', 'curry leaves'}
+    return compile_ingredients(dishes) - intersection       
 
-example_dishes = [
-                  {'salt', 'breadcrumbs', 'water', 'flour', 'celeriac', 'chickpea flour', 'soy sauce', 'parsley',
-                   'sunflower oil', 'lemon', 'black pepper'},
 
-                  {'cornstarch', 'salt', 'vegetable oil', 'sugar', 'vegetable stock', 'water', 'tofu', 'soy sauce',
-                   'lemon zest', 'lemon juice', 'black pepper', 'ginger', 'garlic'},
-
-                  {'salt', 'mixed herbs', 'silken tofu', 'smoked tofu', 'nutritional yeast', 'turmeric', 'soy sauce',
-                   'garlic', 'lemon juice', 'olive oil', 'black pepper', 'spaghetti'},
-
-                  {'salt', 'mushrooms', 'sugar', 'barley malt', 'nutritional yeast', 'fresh basil', 'olive oil',
-                   'honey', 'yeast', 'red onion', 'bell pepper', 'cashews', 'oregano', 'rosemary', 'garlic powder',
-                   'tomatoes', 'water', 'flour', 'red pepper flakes', 'garlic'},
-
-                  {'mango powder', 'oil', 'salt', 'cardamom powder', 'fresh red chili', 'sugar', 'fresh ginger',
-                   'turmeric', 'red chili powder', 'curry leaves', 'garlic paste', 'mustard seeds', 'vinegar',
-                   'mashed potatoes', 'garam masala', 'mangoes', 'nigella seeds', 'clove powder', 'serrano chili',
-                   'cumin powder', 'onion', 'water', 'chickpea flour', 'coriander seeds', 'turmeric powder', 'hing',
-                   'coriander powder', 'cinnamon powder', 'cilantro', 'garlic'},
-
-                  {'mango powder', 'oil', 'salt', 'cardamom powder', 'fresh red chili', 'sugar', 'fresh ginger',
-                   'turmeric', 'red chili powder', 'curry leaves', 'garlic paste', 'mustard seeds', 'vinegar',
-                   'mashed potatoes', 'garam masala', 'mangoes', 'nigella seeds', 'clove powder', 'serrano chili',
-                   'cumin powder', 'onion', 'water', 'chickpea flour', 'coriander seeds', 'turmeric powder', 'hing',
-                   'coriander powder', 'cinnamon powder', 'cilantro', 'garlic'}
-                  ]
-
-print(singleton_ingredients(example_dishes, EXAMPLE_INTERSECTION)) 
+# print(singleton_ingredients(example_dishes, EXAMPLE_INTERSECTION)) 

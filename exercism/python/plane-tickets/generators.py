@@ -13,18 +13,11 @@ def generate_seat_letters(number):
     Example: A, B, C, Dexercism download --track=python --exercise=plane-tickets
 
     """
-    
-    # character = ["A", "B", "C", "D"]
-    # for char in character:
-    #     yield char
-    
-    
-    character = ["A", "B", "C", "D"]
-    # for char in character:
-    #     print(char)
+
+    character = "ABCD"
     for i in range(number):
-        # print(i)
-        yield character[i%4]
+        # print(i)   #0,1,2,3
+        yield character[i%len(character)]   #character[0] = A, character[1] = B...  
 
 
 letters = generate_seat_letters(4)
@@ -50,21 +43,23 @@ def generate_seats(number):
 
     """
 
+    row = 0   #ряд
     
-    for num in range(1, number+1):   #проитерируемся по рядам от 1 до намбер включительно  
-        # print(num)
-        if num == 13:
-            continue
-        for seat in generate_seat_letters(4):
-            # print(seat)
-            yield f"{num}{seat}"
+    for i, seat in enumerate(generate_seat_letters(number)):  #generate_seat_letters(number)
+        # print(i,seat)    #0 A, 1 B, 2 C, 3 D.... 
+        if i % 4 == 0:   #если i без остатка делиться на 4, 
+            row += 1     #начинаем новый ряд 
+        if row == 13:    #ЕСЛИ РЯД 13 
+            row += 1     
+        yield f"{row}{seat}"  
     
 
 seats = generate_seats(56)
-print(next(seats))
-print(next(seats))
 
+# for _ in range(56):
+#     print(next(seats))
 
+# print(next(seats))
 
 
 
@@ -79,7 +74,16 @@ def assign_seats(passengers):
 
     """
 
-    pass
+    result = {}    #пустой словарь
+    places = generate_seats(len(passengers))  #места - общее кол-во = кол-ву пассажиров
+    for passenger in passengers:     #вычленяем пассажиров по одному
+        result[passenger] = next(places)  #добавляем в словарь пары ключ=значение, используя генератор функции выше!
+
+    return result
+
+passengers = ['Jerimiah', 'Eric', 'Bethany', 'Byte', 'SqueekyBoots', 'Bob']
+# print(assign_seats(passengers))
+
 
 def generate_codes(seat_numbers, flight_id):
     """Generate codes for a ticket.
@@ -90,4 +94,14 @@ def generate_codes(seat_numbers, flight_id):
 
     """
 
-    pass
+    for num in seat_numbers:
+        yield ((str(num)+ flight_id).ljust(12, "0"))
+        
+
+
+seat_numbers = ['1A', '17D']
+flight_id = 'CO1234'
+ticket_ids = generate_codes(seat_numbers, flight_id)    
+
+# print(next(ticket_ids))
+# print(next(ticket_ids))

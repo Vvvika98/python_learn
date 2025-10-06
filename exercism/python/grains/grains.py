@@ -4,16 +4,16 @@ def square(number):
     if number == 1:
         return 1    #первое зерно на первой клетке
     corn = 1        #первое зерно 
-    count = number - 1
-    for i in range(count):
-        corn *= 2
+    count = number - 1   #кол-во итераций т.е. кол-во клеток до данной клетки (заданное число минус 1)
+    for i in range(count):  #перебираем итерации
+        corn *= 2     #зерно удваиваем
 
     return corn
 
 def total():
-    summary = 0
-    for number in range(1,65):
-        summary += square(number)
+    summary = 0    #сумма
+    for number in range(1,65):  #перебираем числа в интервале
+        summary += square(number)   #сумма всех зерен на всех квадратиках = складываем значения из предыдущей функции
     return summary
 
 

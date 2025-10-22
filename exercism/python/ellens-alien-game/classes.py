@@ -92,12 +92,7 @@ print(Alien.total_aliens_created)
 
 #7 
 def new_aliens_collection(alien_start_positions):
-    aliens = []
-    for x,y in alien_start_positions:
-        print()
-        alien = Alien(x,y)
-        aliens.append(alien)
-    return aliens
+    return [Alien(x,y) for x,y in alien_start_positions]
 
 
     

@@ -18,7 +18,7 @@ def response(hey_bob):
         return "Sure."
     if res.isupper():
         return "Whoa, chill out!"
-    if len(res) >= 0 and res.isspace() or len(res) == 0:   #странное условие но с ним работает
+    if res.isspace() or len(res) == 0:   
         return "Fine. Be that way!"
     return "Whatever."
 
@@ -26,17 +26,17 @@ def response(hey_bob):
 
 
 
-print(response("fffbbcbeab?"))  #Sure
-print(response("Okay if like my  spacebar  quite a bit?   ")) #"Sure."!!!!!!!!!!!!!!!!!!!!
+# print(response("fffbbcbeab?"))  #Sure
+# print(response("Okay if like my  spacebar  quite a bit?   ")) #"Sure."!!!!!!!!!!!!!!!!!!!!
 
-print(response("FCECDFCAAB"))   #Whoa, chill out
+# print(response("FCECDFCAAB"))   #Whoa, chill out
 
-print(response("WHAT'S GOING ON?"))   #Calm down, I know what I'm doing 
+# print(response("WHAT'S GOING ON?"))   #Calm down, I know what I'm doing 
 
-print(response(""))             #"Fine. Be that way!" !!!!!!!!!!!!!!
-print(response("          "))   #Fine. Be that way!
+# print(response(""))             #"Fine. Be that way!" !!!!!!!!!!!!!!
+# print(response("          "))   #Fine. Be that way!
 
-print(response("Hi there!"))    #Whatever
+# print(response("Hi there!"))    #Whatever
 
 
 

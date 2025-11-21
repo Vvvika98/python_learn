@@ -64,7 +64,7 @@ seats = generate_seats(56)
 
 
 
-def assign_seats(passengers):
+def assign_seats(passengers):    #Ваня сказал переписать, используя dict_comt + zip
     """Assign seats to passengers.
 
     :param passengers: list[str] - a list of strings containing names of passengers.
@@ -95,7 +95,8 @@ def generate_codes(seat_numbers, flight_id):
     """
 
     for num in seat_numbers:
-        yield ((str(num)+ flight_id).ljust(12, "0"))
+        # yield ((str(num)+ flight_id).ljust(12, "0"))
+        yield f"{num}{flight_id}".ljust(12,"0")
         
 
 

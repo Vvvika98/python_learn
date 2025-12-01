@@ -16,7 +16,7 @@ def color_code(color):
 
 
 def colors():
-    return [color for color in RESISTORS.keys()]
+    return list(RESISTORS.keys())
 
 
 

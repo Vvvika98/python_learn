@@ -1,6 +1,6 @@
 def is_isogram(string):
-    string = string.replace("-", "").replace(" ", "")
-    return len(string.lower().strip()) == len(set(string.lower()))
+    string = string.replace("-", "").replace(" ", "").lower().strip() #проще сделать все операции над строкой сразу, чем в каждом случае заново
+    return len(string) == len(set(string))
 
 
 

@@ -5,18 +5,15 @@ def steps(number):
     if number == 1:
         return count
     while number != 1:
-        if number % 2 == 1: 
-            number = number * 3 + 1
-            count += 1
-        number = number // 2
+        number = number * 3 + 1 if number % 2 else number // 2 #тернарный оператор в цикле 
         count += 1
-    return count  
+    return count 
 
 
-print(steps(1))  #0
+# print(steps(1))  #0
 
-# print(steps(16))  #4
+# print(steps(3))  
 
-print(steps(1000000)) #152
+# print(steps(1000000)) #152
 
-# print(steps(-15))   #ValueError
+# # print(steps(-15))   #ValueError

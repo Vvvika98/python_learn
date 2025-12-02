@@ -1,13 +1,14 @@
 def is_armstrong_number(number):
     result = 0
-    count = len(str(number))
-    for num in str(number):
-        result += int(num) ** count
+    num = str(number)
+    count = len(num)
+    for n in num:
+        result += int(n) ** count
     return number == result
     
     
     
-
+#переписать без использования строки
 
 
 print(is_armstrong_number(10)) #False
